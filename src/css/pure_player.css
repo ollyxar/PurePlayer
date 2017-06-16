@@ -1,4 +1,6 @@
 .pure-player {
+    position: relative;
+    display: inline-block;
     width: auto;
     background: #000;
     font-family: 'Open Sans', sans-serif;
@@ -35,7 +37,7 @@
 .pure-player .volume {
     height: 100%;
     width: 0;
-    background: #ff6666;
+    background: #15c0ff;
     position: relative;
 }
 
@@ -45,7 +47,7 @@
     right: -3px;
     width: 9px;
     height: 9px;
-    background: #ff6666;
+    background: #15c0ff;
     border-radius: 50%;
     top: -3px;
     border: 1px solid #fff;
@@ -53,13 +55,13 @@
 
 .pure-player .quality-box-hidden li.active,
 .pure-player .speed-box-hidden li.active {
-    background: #ff6666;
+    background: #15c0ff;
 }
 
 .pure-player .loader {
     height: 100%;
     width: 0;
-    background: rgba(255, 102, 102, 0.28);
+    background: rgba(21, 192, 255, 0.28);
     position: relative;
     top: -5px;
 }
@@ -94,7 +96,7 @@
 .pure-player .play-button {
     border: none;
     cursor: pointer;
-    width: 50px;
+    width: 25px;
     display: inline-block;
     background: transparent;
     vertical-align: bottom;
@@ -114,9 +116,9 @@
 }
 
 .pure-player .control-buttons {
-    width: 230px;
     display: inline-block;
     float: right;
+    font-size: 12px;
 }
 
 .pure-player .quality-box,
@@ -125,7 +127,7 @@
     position: relative;
     text-align: right;
     padding-top: 3px;
-    margin: 0 10px 0 0;
+    margin: 0 0 0 10px;
     display: inline-block;
 }
 
@@ -179,6 +181,7 @@
 
 .pure-player .volume-box {
     display: inline-block;
+    margin: 0 0 0 10px;
 }
 
 .pure-player .volume-box > * {
@@ -206,6 +209,9 @@
 
 .pure-player span.time {
     color: #fff;
+    font-size: 12px;
+    display: inline-block;
+    padding-bottom: 6px;
 }
 
 .pure-player .zero-opacity {
@@ -227,19 +233,18 @@
 }
 
 .pure-player .preloader {
-    width: 64px;
-    height: 64px;
+    width: 50px;
     display: block;
     position: absolute;
     margin: auto;
-    top: 40%;
+    top: 36%;
     left: 0;
     right: 0;
     z-index: 10;
 }
 
 .pure-player .facebook_blockG {
-    background-color: #ff6666;
+    background-color: #15c0ff;
     float: left;
     height: 45px;
     margin-left: 3px;
@@ -341,28 +346,5 @@
     100% {
         -moz-transform: scale(0.7);
         opacity: 0.1;
-    }
-}
-
-@media (max-width: 479px) {
-    .play-button {
-        width: 20px;
-    }
-
-    .control-buttons {
-        width: 205px;
-        font-size: 12px;
-    }
-
-    .quality-box {
-        margin: 0;
-    }
-}
-
-@media (max-width: 360px) {
-    span.time {
-        font-size: 12px;
-        display: inline-block;
-        padding-bottom: 6px;
     }
 }

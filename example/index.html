@@ -6,10 +6,45 @@
     <link rel="stylesheet" href="../src/css/pure_player.css">
 </head>
 <body>
+<h1>PurePlayer example</h1>
 <div class="my-player"></div>
+<div class="my-player2" style="width:360px;"></div>
 <script src="../src/js/pure_player.js"></script>
 <script type="text/javascript">
-    document.getElementsByClassName('my-player')[0].purePlayer();
+    document.querySelector('.my-player').purePlayer({
+        format: 'video/mp4',
+        video: {
+            '720': {
+                'src': '../example/video/SampleVideo_1280x720_10mb.mp4'
+            },
+            '480': {
+                'src': '../example/video/SampleVideo_720x480_10mb.mp4'
+            },
+            '360': {
+                'src': '../example/video/SampleVideo_640x360_10mb.mp4'
+            },
+            '240': {
+                'src': '../example/video/SampleVideo_360x240_10mb.mp4'
+            }
+        }
+    });
+    document.querySelector('.my-player2').purePlayer({
+        format: 'video/mp4',
+        video: {
+            '720': {
+                'src': '../example/video/SampleVideo_1280x720_10mb.mp4'
+            },
+            '480': {
+                'src': '../example/video/SampleVideo_720x480_10mb.mp4'
+            },
+            '360': {
+                'src': '../example/video/SampleVideo_640x360_10mb.mp4'
+            },
+            '240': {
+                'src': '../example/video/SampleVideo_360x240_10mb.mp4'
+            }
+        }
+    });
 </script>
 </body>
 </html>
