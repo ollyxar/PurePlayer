@@ -12,15 +12,22 @@
     };
 
     HTMLElement.prototype.purePlayer = function (params) {
-        params = params || {
-                format: 'video/mp4',
-                video: {
-                    '360': {
-                        'src': 'link_to_video',
-                        'subtitles': 'link_to_subtitles'
-                    }
+        var defaultParams = {
+            format: 'video/mp4',
+            video: {
+                '': {
+                    'src': this.src,
+                    'subtitles': 'link_to_subtitles'
                 }
-            };
+            }
+        };
+
+        params = params || defaultParams;
+
+        for (var attr in defaultParams) {
+            params[attr] = typeof params[attr] !== 'undefined' ? params[attr] : defaultParams[attr];
+        }
+
         this.style.display = 'none';
 
         var preloaderItem = document.createElement('div'),
@@ -427,5 +434,9 @@
         this.parentNode.insertBefore(player, this.parentNode.nextSibling);
         quality.firstChild.click();
         fn.setVolume(document.cookie.replace(/(?:(?:^|.*;\s*)volume\s*\=\s*([^;]*).*$)|^.*$/, "$1") || 1);
+
+        if (params.autoplay) {
+            video.play();
+        }
     };
 })();
