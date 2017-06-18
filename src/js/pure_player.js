@@ -129,9 +129,9 @@
             },
             toggleMute: function () {
                 if (video.volume > 0) {
-                    this.setVolume(0);
+                    fn.setVolume(0);
                 } else {
-                    this.setVolume(1);
+                    fn.setVolume(1);
                 }
             },
             updatePosition: function () {
@@ -166,7 +166,6 @@
                 controlsBar.className = 'controls-bar zero-opacity';
                 document.body.style.cursor = 'none';
             },
-
             showPanel: function () {
                 controlsBar.className = 'controls-bar';
                 document.body.style.cursor = 'auto';
@@ -307,7 +306,7 @@
         volumeBar.className = 'volume-bar';
         volumeBar.appendChild(volume);
         volumeBar.on('click', function (e) {
-            var i = (e.clientX - this.offsetLeft) / this.clientWidth;
+            var i = e.offsetX / this.offsetWidth;
             fn.setVolume(i);
         });
 
