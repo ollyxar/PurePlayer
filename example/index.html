@@ -3,33 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>PurePlayer Example</title>
-    <link rel="stylesheet" href="../src/css/pure_player.css">
+    <link rel="stylesheet" href="../dist/css/pure_player.css">
 </head>
 <body>
 
 <h1>PurePlayer example</h1>
 
-<video class="my-player" src="../example/video/360.mp4"></video>
+<video class="my-player" src="https://ollyxar.com/upload/video/360.mp4"></video>
 
 <div class="my-player2"></div>
 
-<script src="../src/js/pure_player.js"></script>
+<script src="../dist/js/pure_player.min.js"></script>
 <script type="text/javascript">
     document.querySelector('.my-player').purePlayer({'autoplay': true});
     document.querySelector('.my-player2').purePlayer({
         format: 'video/mp4',
         video: {
             '720': {
-                'src': '../example/video/720.mp4'
+                'src': 'https://ollyxar.com/upload/video/720.mp4'
             },
             '480': {
-                'src': '../example/video/480.mp4'
+                'src': 'https://ollyxar.com/upload/video/480.mp4'
             },
             '360': {
-                'src': '../example/video/360.mp4'
+                'src': 'https://ollyxar.com/upload/video/360.mp4'
             },
             '240': {
-                'src': '../example/video/240.mp4'
+                'src': 'https://ollyxar.com/upload/video/240.mp4'
             }
         }
     });
