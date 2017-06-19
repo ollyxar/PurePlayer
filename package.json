@@ -7,6 +7,8 @@
     "example": "example"
   },
   "scripts": {
+    "prod": "gulp --default",
+    "dev": "gulp watch",
     "test": "echo \"No tests\""
   },
   "repository": {
@@ -20,12 +22,17 @@
     "player",
     "javascript",
     "quality-control"
-
   ],
   "author": "Oleksii Svyrydenko aka Alex Slipknot",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/ollyxar/PurePlayer/issues"
   },
-  "homepage": "https://github.com/ollyxar/PurePlayer#readme"
+  "homepage": "https://github.com/ollyxar/PurePlayer#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.4.2",
+    "gulp-imagemin": "^3.3.0",
+    "gulp-minify": "^1.0.0"
+  }
 }

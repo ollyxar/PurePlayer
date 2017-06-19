@@ -1,4 +1,7 @@
 # PurePlayer
+
+[![Build Status](https://travis-ci.org/ollyxar/PurePlayer.svg?branch=master)](https://travis-ci.org/ollyxar/PurePlayer)
+
 HTML5 Javascript player
 
 ![PurePlayer](https://i.imgur.com/Z1dhwuQ.jpg)
