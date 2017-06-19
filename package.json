@@ -1,0 +1,9 @@
+{
+  "name": "PurePlayer",
+  "title": "PurePlayer",
+  "description": "HTML5 Javascript player",
+  "version": "1.0",
+  "devDependencies": {
+    "gulp": "^3.8.8"
+  }
+}
