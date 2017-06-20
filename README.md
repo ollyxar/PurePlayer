@@ -47,6 +47,7 @@ With this player you can add video in different quality. You can see basic usage
 |||
 |---|---|
 |`.onplay`|Call when video start playing. You can specify parameter to get position (in seconds) of current video.|
+
 Example:
 
     myPlayer.onplay = function (currentPosition) {
@@ -56,6 +57,7 @@ Example:
 |||
 |---|---|
 |`.onpause`|Call when video pause playing. You can specify parameter to get position (in seconds) of current video.| 
+
 Example:
 
     myPlayer.onpause = function (currentPosition) {
@@ -66,6 +68,7 @@ Example:
 |||
 |---|---|
 |`.onend`|Call when video finished.| 
+
 Example:
 
     myPlayer.onend = function () {
