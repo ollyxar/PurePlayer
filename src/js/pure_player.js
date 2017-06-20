@@ -28,9 +28,8 @@
             params[attr] = typeof params[attr] !== 'undefined' ? params[attr] : defaultParams[attr];
         }
 
-        this.style.display = 'none';
-
-        var preloaderItem = document.createElement('div'),
+        var me = this,
+            preloaderItem = document.createElement('div'),
             preloader = document.createElement('div'),
             source = document.createElement('source'),
             video = document.createElement('video'),
@@ -137,6 +136,10 @@
             updatePosition: function () {
                 progressPosition.style.width = video.currentTime / video.duration * 100 + '%';
                 timeProgress.innerHTML = fn.convertTime(video.currentTime || 0) + ' / ' + fn.convertTime(video.duration || 0);
+
+                if (video.duration - video.currentTime === 0 && typeof me.onend === 'function') {
+                    me.onend();
+                }
             },
             rewind: function (backward) {
                 rewindWorking = true;
@@ -206,9 +209,17 @@
             timeProgress.innerHTML = fn.convertTime(this.currentTime) + ' / ' + fn.convertTime(this.duration);
         }).on('pause', function () {
             playButton.className = 'play-button';
+
+            if (typeof me.onpause === 'function') {
+                me.onpause(video.currentTime);
+            }
         }).on('play', function () {
             playButton.className = 'play-button pause';
             fn.setVolume(document.cookie.replace(/(?:(?:^|.*;\s*)volume\s*\=\s*([^;]*).*$)|^.*$/, "$1"));
+
+            if (typeof me.onplay === 'function') {
+                me.onplay(video.currentTime);
+            }
         }).on('timeupdate', function () {
             if (this.duration) {
                 fn.updatePosition();
@@ -430,12 +441,42 @@
             }
         });
 
-        this.parentNode.insertBefore(player, this.parentNode.nextSibling);
-        quality.firstChild.click();
-        fn.setVolume(document.cookie.replace(/(?:(?:^|.*;\s*)volume\s*\=\s*([^;]*).*$)|^.*$/, "$1") || 1);
+        this.init = function () {
+            this.style.display = 'none';
+            this.parentNode.insertBefore(player, this.parentNode.nextSibling);
+            quality.firstChild.click();
+            fn.setVolume(document.cookie.replace(/(?:(?:^|.*;\s*)volume\s*\=\s*([^;]*).*$)|^.*$/, "$1") || 1);
 
-        if (params.autoplay) {
+            if (params.autoplay) {
+                video.play();
+            }
+        };
+
+        this.destroy = function () {
+            video.pause();
+            this.parentNode.removeChild(player);
+            this.style.display = '';
+        };
+
+        this.play = function () {
             video.play();
-        }
+        };
+
+        this.pause = function () {
+            video.pause();
+        };
+
+        this.stop = function () {
+            video.pause();
+            video.currentTime = 0;
+        };
+
+        this.setPosition = function (i) {
+            video.currentTime = i;
+        };
+
+        this.init();
+
+        return this;
     };
 })();

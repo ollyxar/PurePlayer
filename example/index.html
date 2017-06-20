@@ -16,7 +16,8 @@
 <script src="../dist/js/pure_player.min.js"></script>
 <script type="text/javascript">
     document.querySelector('.my-player').purePlayer({'autoplay': true});
-    document.querySelector('.my-player2').purePlayer({
+
+    var player = document.querySelector('.my-player2').purePlayer({
         format: 'video/mp4',
         video: {
             '720': {

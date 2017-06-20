@@ -22,10 +22,10 @@ gulp.task('compress-css', () => {
         .pipe(gulp.dest('dist/css'));
 });
 
-gulp.task('compress-img', () =>
-    gulp.src('src/img/*')
-        .pipe(imagemin([imagemin.optipng({optimizationLevel: 5})]))
+gulp.task('compress-img', () => {
+    return gulp.src('src/img/*')
+        .pipe(imagemin([imagemin.optipng({optimizationLevel: 5})]))
         .pipe(gulp.dest('dist/img'))
-);
+});
 
 gulp.task('default', ['compress-css', 'compress-js', 'compress-img']);
