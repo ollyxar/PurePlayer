@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/ollyxar/PurePlayer.svg?branch=master)](https://travis-ci.org/ollyxar/PurePlayer)
 ![Version](https://img.shields.io/npm/v/pure_player.svg)
+![Downloads](https://img.shields.io/npm/dm/pure_player.svg)
 ![License](https://img.shields.io/npm/l/pure_player.svg)
 
 HTML5 Javascript player
