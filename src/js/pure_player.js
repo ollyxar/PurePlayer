@@ -1,7 +1,7 @@
 /**
  * @author Oleksii Svyrydenko aka Alex Slipknot
  * @copyright Oleksii Svyrydenko
- * @version 1.0
+ * @version 1.1.1
  */
 'use strict';
 
@@ -378,10 +378,10 @@
         progressWrapper.appendChild(hovered);
         progressWrapper.appendChild(progressCommon);
         progressWrapper.on('click', function (e) {
-            video.currentTime = video.duration * e.layerX / (e.target.offsetWidth - e.target.offsetLeft);
+            video.currentTime = video.duration * (e.offsetX / (this.offsetWidth - e.target.offsetLeft));
         }).on('mousemove', function (e) {
-            hovered.innerText = fn.convertTime((video.duration || 0) * e.layerX / (e.target.offsetWidth - e.target.offsetLeft));
-            hovered.style.left = ((e.layerX + e.target.offsetLeft) - hovered.offsetWidth / 2) + 'px';
+            hovered.innerText = fn.convertTime((video.duration || 0) * e.offsetX / (this.offsetWidth - this.offsetLeft));
+            hovered.style.left = ((e.offsetX + e.target.offsetLeft) - hovered.offsetWidth / 2) + 'px';
         });
 
         controlsBar.appendChild(progressWrapper);
@@ -390,6 +390,7 @@
         controlsBar.appendChild(controlButtons);
 
         player.className = 'pure-player';
+        player.setAttribute('tabindex', '0');
         player.appendChild(preloader);
         player.appendChild(video);
         player.appendChild(controlsBar);

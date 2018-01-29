@@ -6,6 +6,10 @@
     font-family: 'Open Sans', sans-serif;
 }
 
+.pure-player:focus {
+    outline: none;
+}
+
 .pure-player * {
     margin: 0;
     padding: 0;
@@ -27,7 +31,6 @@
 .pure-player .progress-wrap {
     width: 100%;
     height: 10px;
-    padding: 0 9px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
